@@ -740,6 +740,9 @@ input[type="password"]:focus {
   color: #fa610c;
   margin-right: 15px;
 }
+.formPost_h1:hover {
+  cursor: pointer;
+}
 
 .modal__cabecera {
   margin: 10px;

@@ -108,9 +108,9 @@ export const ModalEditCom = () => {
   // Evento para guardar post (update en firebase)
   guardar.addEventListener('click', () => {
     // limpiar modal antes de cerrar
-    com.value = '';
+    // com.value = '';
     // eliminar event listeners a cualquier nodo o elemeno
-    guardar.removeEventListener('click', guardarButtonClickListener);
+    // guardar.removeEventListener('click', guardarButtonClickListener);
 
     modalContenedor.style.opacity = '0';
     modalContenedor.style.visibility = 'hidden';
@@ -119,11 +119,11 @@ export const ModalEditCom = () => {
   const setCom = (comData, postId) => {
     com.value = `${comData.message}`;
 
-    guardarButtonClickListener = () => {
+    guardarButtonClickListener = async () => {
       // const nuevoMensaje = document.getElementById("msgPost").value;
       const nuevoMensaje = com.value;
       // Actualiza el Post
-      updateCom(postId, comData.com_id, nuevoMensaje).then(() => {
+      await updateCom(postId, comData.com_id, nuevoMensaje).then(() => {
         window.location.hash = '#/';
       });
     };
