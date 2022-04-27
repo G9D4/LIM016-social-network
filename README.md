@@ -2,7 +2,7 @@
 
 ## Índice
 
-* [0. Link al deploy de la app](https://lucerogoga.github.io/LIM016-social-network/src/#/)
+* [0. Link al deploy de la app](https://lucerogoga.github.io/YAMI-LIM016-social-network/src/#/)
 * [1. Preámbulo](#1-preámbulo)
 * [2. Yami, una aventura culinaria](#2-yami-una-aventura-culinaria)
 * [3. Historias de usuario](#3-historias-de-usuario)
@@ -20,6 +20,8 @@ Es una comunidad formada por usuarios que se relacionan entre ellos mediante una
 El objetivo de las redes sociales es crear una comunidad reuniendo usuarios (pueden ser amigos, familias, colegas, clientes o empresas) con intereses similares, para que puedan compartir información, fotos, videos, ideas y mensajes.  En el caso de las empresas, ayuda al reconocimento de la marca, promoción de productos/servicios y a resolver dudas de los clientes.
 Podríamos decir que los principales usos de una red social, son: *compartir, informar, interactuar y marketear.*
 
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/redes-sociales.jpg" width=500></p>
+
 ### Redes sociales sobre comida
 
 Del mismo modo que existen tendencias sobre moda, estilo de vida y salud, el mundo gastronómico año a año tiene sus propias tendencias, las cuales podemos ver reflejadas en periódicos, revistas, Pinterest, hashtags, etc.
@@ -32,6 +34,8 @@ Generalmente, los seguidores de tendencias gastronómicas buscan información so
 
 Al no contar con una red que centralice todas estas necesidades, el usuario se ve en necesidad de revisar redes de supermercados, revisar blogs, preguntar en su entorno o leer varios artículos.
 
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/red-comida.jpg" width=500></p>
+
 ## 2. Yami, una aventura culinaria
 
 Nuestro proyecto, Yami, es una red social para todo usuario interesado en informarse/interactuar y compartir sus experiencias gastronómicas, desde una receta intentada hasta una reseña de un restaurante que haya visitado.  La aplicación permitirá compartir publicaciones de preguntas, tutoriales, recetas, con o sin fotos, compartir reseñas y mucho más.
@@ -41,6 +45,8 @@ Este proyecto será una Single-page Application (SPA), es decir que contará con
 Para garantizar todas las funciones de una red social necesitaremos autenticar a nuestros usuarios, recopilar su información y guardar sus fotos.  Firebase es una plataforma alojada en la nube que ofrece varios servicios para crear y desarrollar aplicaciones, utilizaremos su servicio de Autenticación, Firestore Database y Storage.
 
 El despliegue de la página se hará en Github desde el repositorio principal.
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/yami-intro.PNG" width=400></p>
 
 ### Análisis de la encuesta
 
@@ -78,7 +84,7 @@ a. Yo como visitante, quiero registrarme, para tener una cuenta en la app
   
   <details><summary>Definición de terminado</summary><p>
   
-  * Verificación manual de datos en Firebase
+  * Verificación manual de datos en Firebase Authentication
   *	Testeo de usabilidad</p></details>
 
 b. Yo como usuario registrado, quiero logearme, para acceder al contenido de la aplicación
@@ -97,7 +103,7 @@ b. Yo como usuario registrado, quiero logearme, para acceder al contenido de la 
   
   <details><summary>Definición de terminado</summary><p>
   
-  * Verificación manual de datos en Firebase
+  * Verificación manual de datos en Firebase Authentication
   *	Testeo de usabilidad</p></details>
   
 c. Yo como usuario, quiero publicar posts, para expresar mis dudas, opiniones o tips culinarios con otros usuarios
@@ -113,7 +119,7 @@ c. Yo como usuario, quiero publicar posts, para expresar mis dudas, opiniones o 
   
   <details><summary>Definición de terminado</summary><p>
   
-  * Verificación manual de datos en Firebase
+  * Verificación manual de datos en Firestore Database
   *	Testeo de usabilidad</p></details>
   
 d. Yo como usuario, quiero poder dar y retirar mi like de un post/reseña, para indicar que me agrada o dejó de agradarme su contenido  
@@ -129,7 +135,7 @@ d. Yo como usuario, quiero poder dar y retirar mi like de un post/reseña, para 
   
   <details><summary>Definición de terminado</summary><p>
   
-  * Verificación manual de datos en Firebase
+  * Verificación manual de datos en Firestore Database
   *	Testeo de usabilidad</p></details>
   
 e. Yo como usuario, quiero editar mi post/reseña, para actualizar la información ingresada como disponga
@@ -146,7 +152,7 @@ e. Yo como usuario, quiero editar mi post/reseña, para actualizar la informaci�
   
   <details><summary>Definición de terminado</summary><p>
   
-  * Verificación manual de datos en Firebase
+  * Verificación manual de datos en Firestore Database
   *	Testeo de usabilidad</p></details>
   
 f. Yo como usuario, quiero eliminar mi post/reseña, para dejar de compartir esta información con el resto de usuarios
@@ -162,33 +168,119 @@ f. Yo como usuario, quiero eliminar mi post/reseña, para dejar de compartir est
   
   <details><summary>Definición de terminado</summary><p>
   
-  * Verificación manual de datos en Firebase
+  * Verificación manual de datos en Firestore Database
   *	Testeo de usabilidad</p></details>
   
 ### Hacker edition
 
-a. Comentar un post
-b. Añadir imágenes a los posts
-c. Editar perfil
+a. Yo como usuario, quiero poder comentar un post mio o ajeno, para expresarme sobre el contenido del post
+
+<details><summary>Criterios de aceptación</summary><p>
+
+  *	El usuario debe estar logeado
+  * El comentario debe hacerse sobre un post existente
+  * Cada post debe tener un input para comentar y botón para enviar
+  * El comentario debe tener el avatar del usuario, su nombre, el mensaje y la hora de posteo
+  * El comentario debe poder ser likeado/deslikeado por todos los usuarios
+  * Solo se permite un like por usuario
+  * Cada comentario hecho por el propio usuario debe tener un botón de opciones
+  * Las opciones del comentario son editar (que abre un modal para editar) y remover (que despliega un modal para confirmar)</p></details>
+  
+  <details><summary>Definición de terminado</summary><p>
+  
+  * Verificación manual de subcolección en Firestore Database
+  *	Testeo de usabilidad</p></details>
+  
+b. Yo como usuario, quiero añadir imágenes a mis posts, para describir mejor mi post
+
+<details><summary>Criterios de aceptación</summary><p>
+
+  *	El usuario debe estar logeado
+  * El usuario debe estar creando/editando un post
+  * El post debe tener un texto
+  * Al hacer click sobre el campo de imagen debe abrir una ventana para elegir una imagen en los archivos locales
+  * El input debe contener el nombre del archivo 
+  * Debajo en un div se mostrará una previsualización de la imagen cargada
+  * El timeline renderizará el post con la imagen debajo del texto
+  * La imagen estará centrada ocupando un tamaño que no deforme el post
+  * Al editar, en el modal, la imagen aparece con la opción de borrarse y permitiendo agregar una nueva
+  </p></details>
+  
+  <details><summary>Definición de terminado</summary><p>
+  
+  * Verificación manual de datos en Firestore Database y Storage
+  *	Testeo de usabilidad</p></details>
+
+c. Yo como usuario, quiero poder editar mi perfil, para poder cambiar mi información a mi gusto
+
+<details><summary>Criterios de aceptación</summary><p>
+
+  *	El usuario debe estar logeado
+  * El usuario solo puede editar su propio perfil
+  * Al entrar al perfil y hacer click en Editar perfil, se redirecciona a una pantalla con la info actual del usuario (avatar, nombre, fecha de nacimiento y correo)
+  * Haciendo click en el botón de Editar, aparece un modal donde podremos editar nuestros datos
+  * Los campos no pueden quedar vacíos, salvo por el de fecha de nacimiento
+  * Si hay un error, aparecerá un mensaje descriptivo
+  * Cuando los cmabios sean realizados, un mensaje lo confirmará
+  * Para cambiar de contraseña, haremos click sobre el texto de "Cambiar contraseña"
+  * Se nos pedirá ingresar la contraseña actual e ingresar 2 veces la nueva contraseña
+  * Habrán mensajes de error al errar en la contraseña actual o ingresar una contraseña nueva no adecuada
+  * Cuando los cambios de hayan guardado, aparecerá el mensaje "Cambios realizados!"
+  </p></details>
+  
+  <details><summary>Definición de terminado</summary><p>
+  
+  * Verificación manual de datos en Firestore Authentication, Firestore Database y Storage
+  *	Testeo de usabilidad</p></details>
 
 ## 4. Proceso de diseño
 
-Inspiración inicial
-Prototipo de baja fidelidad
-Prototipo de alta fidelidad
+**Inspiración inicial**
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/inspo.png" width=700></p>
+
+**Prototipo de baja fidelidad**
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/proto-bf.png" width=800></p>
+
+**Prototipo de alta fidelidad**
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/proto-af.png" width=900></p>
 
 ## 5. Resultados del testeo
 
 ### Testeo manual
 
+En cada sprint del proyecto el equipo testeo la aplicación desde cero para evitar llevarnos bugs de un sprint a otro.  Al destinar el primer sprint al diseño, evitamos muchas fallas en layout, contraste y malentendidos en la interfaz.
 
+La pantallas de registro y login mostraban el mismo eslogan, haciendolas muy similares a primera vista, por lo que decidimos usar el eslogan solo en registro y un mensaje de bienvenida en el login.
+
+Los diferentes modales también tenían errores, no se superponían al contenido del timeline o se superponian entre ellos al abrirlos simultaneamente, para esto anclamos los modales al timeline y creamos una función para hacer un toggle entre ellos.
+
+Los posts tenían una estructura más amplia que el resto de componentes por lo que encontramos muchos problemas en el camino.  Varios procesos de creación/actualización tomaban algo de tiempo, para esto implementamos el uso del loader.  Al editar, un post, la imagen no era editable, esta no cargaba y al volver a publicar, desaparecía.  Por último, el post tenía un max-height que no permitía ver el contenido completo si la imagen ingresada era muy grande, haciendo imposible comentar el post.
+
+En la etapa final del proyecto, agregamos una imagen por defecto a los usuarios nuevos logeados con correo electrónico y corregimos un bug que permitía a un usuario diferente al autor, editar y eliminar el post al inspeccionar la página.
 
 ### Testeo en entrevistas
 
+Realizamos varias entrevistas con diferentes usuarios de diferentes perfiles, desde compañeras de bootcamp (que también conocen el proceso de elaboración del proyecto), usuarios con amplia experiencia en redes sociales y usuarios poco experimentados en redes sociales.
 
+Tuvimos un percance al inicio del testeo, olvidamos colocar el url del deploy entre los dominios de Firebase, identificado el problema lo añadimos y continuamos con el testeo.  Los entrevistados coincidieron en que el diseño era agradable y bastante atractivo en su versión móvil, sus componentes son fácilmente entendibles al mirarlos.
 
 ## 6. Producto final
 
 ### Fotos del resultado final
 
-### [Link al deploy de la aplicación](https://lucerogoga.github.io/LIM016-social-network/src/#/)
+**Vista mobile del timeline**
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/yami-real-timeline.PNG" width=300></p>
+
+**Vista mobile del perfil**
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/yami-real-profile.PNG" width=300></p>
+
+**Vista desktop**
+
+<p align="center" width="100%"><img src="https://github.com/lucerogoga/LIM016-social-network/blob/main/readme-images/yami-desktop.PNG" width=1000></p>
+
+### [Link al deploy de la aplicación](https://lucerogoga.github.io/YAMI-LIM016-social-network/src/#/)
